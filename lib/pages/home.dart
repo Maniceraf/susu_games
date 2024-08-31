@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:susu_games/models/game.dart';
-import 'package:susu_games/pages/memory_patern_game.dart';
+import 'package:susu_games/pages/memory_pattern/memory_pattern_game.model.dart';
+import 'package:susu_games/pages/memory_pattern/memory_pattern_game.component.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.title});
@@ -104,5 +104,17 @@ class HomePageState extends State<HomePage> {
             ),
           ),
         ));
+  }
+}
+
+class HexColor extends Color {
+  HexColor(final String hexColor) : super(_getColorFromHex(hexColor));
+
+  static int _getColorFromHex(String hexColor) {
+    hexColor = hexColor.toUpperCase().replaceAll('#', '');
+    if (hexColor.length == 6) {
+      hexColor = 'FF' + hexColor;
+    }
+    return int.parse(hexColor, radix: 16);
   }
 }
