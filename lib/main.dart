@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:susu_games/pages/home.dart';
 import 'package:susu_games/pages/memory_pattern/memory_pattern_game.component.dart';
+import 'package:susu_games/pages/number_hunt/number_hunt.dart';
 import 'package:susu_games/pages/simple_math/simple_math.component.dart';
 import 'package:susu_games/utilities/custom_page_route.dart';
 
@@ -36,6 +37,8 @@ class MyApp extends StatelessWidget {
             return CustomPageRoute.createPageRoute(const MemoryPatternPage());
           case '/simple_math':
             return CustomPageRoute.createPageRoute(const SimpleMathPage());
+          case '/number_hunt':
+            return CustomPageRoute.createPageRoute(const NumberHuntPage());
           default:
             return null;
         }

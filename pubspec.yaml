@@ -61,6 +61,7 @@ flutter:
   assets:
     - assets/images/simple_math.png
     - assets/images/memory_pattern.png
+    - assets/images/giphy.gif
 
   # To add assets to your application, add an assets section, like this:
   # assets:

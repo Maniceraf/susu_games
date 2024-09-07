@@ -17,7 +17,11 @@ class HomePageState extends State<HomePage> {
     Game(
         name: 'Simple Math',
         imageUrl: 'assets/images/simple_math.png',
-        route: '/simple_math')
+        route: '/simple_math'),
+    Game(
+        name: 'Number Hunt',
+        imageUrl: 'assets/images/simple_math.png',
+        route: '/number_hunt')
   ];
 
   @override
