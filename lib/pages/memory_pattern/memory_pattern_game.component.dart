@@ -8,9 +8,7 @@ import 'package:susu_games/widgets/constant.dart';
 import 'package:susu_games/widgets/dialog_button.dart';
 
 class MemoryPatternPage extends StatefulWidget {
-  const MemoryPatternPage({super.key, required this.title});
-
-  final String title;
+  const MemoryPatternPage({super.key});
 
   @override
   State<MemoryPatternPage> createState() => MemoryPatternPageState();

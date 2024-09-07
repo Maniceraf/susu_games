@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:susu_games/pages/memory_pattern/memory_pattern_game.model.dart';
-import 'package:susu_games/pages/memory_pattern/memory_pattern_game.component.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title});
-
-  final String title;
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => HomePageState();
@@ -15,30 +12,35 @@ class HomePageState extends State<HomePage> {
   final List<Game> gameList = [
     Game(
         name: 'Memory Pattern',
-        imageUrl:
-            'https://play-lh.googleusercontent.com/rwnCo-SgScYx7eU6LhjDAVxZbxhartecN_mYyloVLx76TRBiljqz9QDvnkqdKAorKsc=w240-h480-rw')
+        imageUrl: 'assets/images/memory_pattern.png',
+        route: '/memory_pattern'),
+    Game(
+        name: 'Simple Math',
+        imageUrl: 'assets/images/simple_math.png',
+        route: '/simple_math')
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromARGB(255, 174, 219, 255),
+        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
         appBar: AppBar(
-          scrolledUnderElevation: 0,
-          backgroundColor: const Color.fromARGB(255, 174, 219, 255),
-          title: Text(
-            widget.title,
-            style: const TextStyle(
-                fontSize: 24, fontWeight: FontWeight.bold, color: Colors.red),
-          ),
-          centerTitle: true,
-        ),
+            scrolledUnderElevation: 0,
+            backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+            title: const Text(
+              "SuSu Games",
+              style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
+            ),
+            centerTitle: true),
         body: Padding(
           padding: const EdgeInsets.only(top: 10, bottom: 0, left: 0, right: 0),
           child: Card(
             margin: EdgeInsets.zero,
             clipBehavior: Clip.antiAlias,
-            color: Colors.white,
+            color: Colors.black,
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                   topRight: Radius.circular(30), topLeft: Radius.circular(30)),
@@ -55,18 +57,12 @@ class HomePageState extends State<HomePage> {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              MemoryPatternPage(title: gameList[index].name),
-                        ),
-                      );
+                      Navigator.pushNamed(context, gameList[index].route);
                     },
                     child: Card(
-                      color: Colors.amber,
+                      color: const Color.fromARGB(255, 107, 142, 255),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
+                        borderRadius: BorderRadius.circular(25),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(10),
@@ -77,7 +73,7 @@ class HomePageState extends State<HomePage> {
                             Expanded(
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(15),
-                                child: Image.network(
+                                child: Image.asset(
                                   gameList[index].imageUrl,
                                   fit: BoxFit.cover,
                                 ),
@@ -89,8 +85,9 @@ class HomePageState extends State<HomePage> {
                               child: Text(
                                 gameList[index].name,
                                 style: const TextStyle(
+                                  color: Colors.white,
                                   fontSize: 16,
-                                  fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.w900,
                                 ),
                               ),
                             ),
